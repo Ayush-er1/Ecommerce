@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecoMatic Nepal - Premium Furniture Design Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #1A1A1A;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(47, 58, 73, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 ;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #D4AF37;
+            
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: #D4AF37;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .phone {
+            color: white;
+            font-weight: 500;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: #1A1A1A;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('./ChatGPT\ Image\ Jun\ 3\,\ 2025\,\ 01_02_44\ PM.png');
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #D4AF37;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+           /* Enhanced Catalog Section */
+        .catalog {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #2F3A49;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .catalog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .catalog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .catalog-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .catalog-content {
+            padding: 1.5rem;
+        }
+
+        .catalog-card h3 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2F3A49;
+            margin-bottom: 0.5rem;
+        }
+
+        .catalog-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .catalog-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+
+        .catalog-features {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .catalog-features li {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .catalog-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #D4AF37;
+            font-weight: bold;
+        }
+
+        /* New Products Section */
+        .products {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .product-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #D4AF37;
+            background: transparent;
+            color: #D4AF37;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #D4AF37;
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #D4AF37;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2F3A49;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #D4AF37;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #FFD700;
+        }
+
+        .rating-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .product-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: #1A1A1A;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .catalog-grid, .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .product-filters {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #2F3A49;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .about-image {
+    height: 400px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    background-image: url('./homeora-high-resolution-logo.png');
+    background-size: cover;
+    background-position: center;
+}
+
+        .highlight-box {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            color: #1A1A1A;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Recent Work */
+    .recent-work {
+        padding: 5rem 0;
+        background: white;
+    }
+
+    .work-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .work-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .work-card:hover {
+        transform: scale(1.05);
+    }
+
+    .work-image {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .work-info {
+        padding: 1.5rem;
+    }
+
+    .work-info h3 {
+        color: #2F3A49;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Reviews */
+    .reviews {
+        padding: 5rem 0;
+        background: #f8f9fa;
+    }
+
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .review-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .review-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .reviewer-image-container {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 0 auto 1rem;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #D4AF37, #F4D03F);
+        padding: 4px;
+    }
+
+    .reviewer-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid white;
+    }
+
+    .review-text {
+        font-style: italic;
+        margin-bottom: 1rem;
+        color: #666;
+    }
+
+    .reviewer-name {
+        font-weight: bold;
+        color: #2F3A49;
+    }
+
+        /* Footer */
+        .footer {
+            background: #2F3A49;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #D4AF37;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .product-filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">Homeora</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#catalog">Catalog</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#work">Recent Work</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <span class="phone">+977-1-4445566</span>
+                <a href="#contact" class="cta-btn">Order Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Premium Furniture<br>Design Studio</h1>
+            <p>Creating exceptional furniture with superior quality and timeless design across Nepal</p>
+            <a href="#catalog" class="cta-btn">Explore Collection</a>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2500</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Years Warranty</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Enhanced Catalog Section -->
+    <section id="catalog" class="catalog">
+        <div class="container">
+            <h2 class="section-title">Our Furniture Categories</h2>
+            <p class="section-subtitle">Discover our comprehensive range of premium furniture designed for modern Nepali homes</p>
+            <div class="catalog-grid">
+                <!-- Living Room Sets -->
+                <div class="catalog-card">
+                    <div class="catalog-image" style="background-image: url('./oliver-cox-GJDIKOIHi8E-unsplash.jpg');"></div>
+                    <div class="catalog-content">
+                        <h3>Living Room Sets</h3>
+                        <p class="catalog-description">Complete living room solutions including sofas, coffee tables, TV units, and decorative pieces perfect for Nepali families.</p>
+                        <div class="catalog-price">Starting from NPR 85,000</div>
+                        <ul class="catalog-features">
+                            <li>Premium teak and sal wood</li>
+                            <li>Custom fabric options</li>
+                            <li>Space-optimized designs</li>
+                            <li>Free home consultation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Kitchen Furniture -->
+                <div class="catalog-card">
+                    <div class="catalog-image" style="background-image: url('./naomi-hebert-MP0bgaS_d1c-unsplash.jpg');"></div>
+                    <div class="catalog-content">
+                        <h3>Kitchen Furniture</h3>
+                        <p class="catalog-description">Modern modular kitchen designs and traditional kitchen furniture suitable for Nepali cooking styles and space requirements.</p>
+                        <div class="catalog-price">Starting from NPR 125,000</div>
+                        <ul class="catalog-features">
+                            <li>Modular and traditional designs</li>
+                            <li>Water-resistant materials</li>
+                            <li>Spice storage solutions</li>
+                            <li>Gas stove accommodation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Bedroom Collections -->
+                <div class="catalog-card">
+                    <div class="catalog-image" style="background-image: url('./kenny-eliason-iAftdIcgpFc-unsplash.jpg');"></div>
+                    <div class="catalog-content">
+                        <h3>Bedroom Collections</h3>
+                        <p class="catalog-description">Elegant bedroom sets including beds, wardrobes, dressing tables, and storage solutions for modern Nepali bedrooms.</p>
+                        <div class="catalog-price">Starting from NPR 95,000</div>
+                        <ul class="catalog-features">
+                            <li>King, Queen, and Single sizes</li>
+                            <li>Built-in storage options</li>
+                            <li>Traditional and modern styles</li>
+                            <li>Climate-resistant finishes</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Office Furniture -->
+                <div class="catalog-card">
+                    <div class="catalog-image" style="background-image: url('./s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg');"></div>
+                    <div class="catalog-content">
+                        <h3>Office Furniture</h3>
+                        <p class="catalog-description">Professional office furniture for businesses and home offices, designed for productivity and comfort in Nepal's work environment.</p>
+                        <div class="catalog-price">Starting from NPR 45,000</div>
+                        <ul class="catalog-features">
+                            <li>Ergonomic designs</li>
+                            <li>Cable management systems</li>
+                            <li>Durable materials</li>
+                            <li>Flexible configurations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Dining Sets -->
+                <div class="catalog-card">
+                    <div class="catalog-image" style="background-image: url('./zoshua-colah-eeM8CgQng1A-unsplash.jpg');"></div>
+                    <div class="catalog-content">
+                        <h3>Dining Sets</h3>
+                        <p class="catalog-description">Beautiful dining tables and chairs for family gatherings, festivals, and daily meals, crafted for Nepali dining traditions.</p>
+                        <div class="catalog-price">Starting from NPR 65,000</div>
+                        <ul class="catalog-features">
+                            <li>4, 6, and 8 seater options</li>
+                            <li>Expandable table designs</li>
+                            <li>Easy maintenance surfaces</li>
+                            <li>Festival-ready styles</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Storage Solutions -->
+                <div class="catalog-card">
+                    <div class="catalog-image" style="background-image: url('./jean-philippe-delberghe-YreRvwfXvGo-unsplash.jpg');"></div>
+                    <div class="catalog-content">
+                        <h3>Storage Solutions</h3>
+                        <p class="catalog-description">Smart storage furniture including almirahs, cabinets, and organizers designed for maximum space utilization in Nepali homes.</p>
+                        <div class="catalog-price">Starting from NPR 35,000</div>
+                        <ul class="catalog-features">
+                            <li>Space-saving designs</li>
+                            <li>Multiple compartments</li>
+                            <li>Dust and pest resistant</li>
+                            <li>Customizable layouts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Best Selling Products</h2>
+            <p class="section-subtitle">Handpicked furniture pieces loved by customers across Nepal</p>
+            
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="living">Living Room</button>
+                <button class="filter-btn" data-filter="bedroom">Bedroom</button>
+                <button class="filter-btn" data-filter="dining">Dining</button>
+                <button class="filter-btn" data-filter="office">Office</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Royal Teak Sofa Set -->
+                <div class="product-card" data-category="living">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-image" style="background-image: url('./mindy-jacobs-hAh4Unn50gk-unsplash.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Royal Teak Sofa Set</h3>
+                        <div class="product-price">NPR 145,000</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">(127 reviews)</span>
+                        </div>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Executive Bedroom Set -->
+                <div class="product-card" data-category="bedroom">
+                    <div class="product-badge">New</div>
+                    <div class="product-image" style="background-image: url('./ali-moradi-y8e2n6eCXmo-unsplash.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Executive Bedroom Set</h3>
+                        <div class="product-price">NPR 185,000</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">(89 reviews)</span>
+                        </div>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Heritage Dining Table -->
+                <div class="product-card" data-category="dining">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-image" style="background-image: url('./ilse-orsel-xBMAYd5kk2w-unsplash.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Heritage Dining Table</h3>
+                        <div class="product-price">NPR 95,000</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">(156 reviews)</span>
+                        </div>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Professional Work Desk -->
+                <div class="product-card" data-category="office">
+                    <div class="product-image" style="background-image: url('./kevin-bhagat-xea3O-h1cz4-unsplash.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Professional Work Desk</h3>
+                        <div class="product-price">NPR 55,000</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">(73 reviews)</span>
+                        </div>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Modern TV Unit -->
+                <div class="product-card" data-category="living">
+                    <div class="product-image" style="background-image: url('./thom-milkovic-uV1weWrJnRM-unsplash.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Modern TV Unit</h3>
+                        <div class="product-price">NPR 45,000</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">(92 reviews)</span>
+                        </div>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Designer Wardrobe -->
+                <div class="product-card" data-category="bedroom">
+                    <div class="product-badge">Sale</div>
+                    <div class="product-image" style="background-image: url('./ali-moradi-9KVtDmNnFP4-unsplash.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-name">Designer Wardrobe</h3>
+                        <div class="product-price">NPR 125,000</div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">(134 reviews)</span>
+                        </div>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About DecoMatic Nepal</h2>
+                    <p>Established in 2017, DecoMatic Nepal has become a leading furniture design studio specializing in creating exceptional pieces that combine functionality with aesthetic appeal. We understand the unique needs of Nepali homes and design furniture that fits perfectly with local lifestyles and preferences.</p>
+                    <p>Our team of skilled craftsmen and designers work together to bring your vision to life, using premium materials sourced locally and internationally. We take pride in supporting local artisans while maintaining international quality standards.</p>
+                    
+                    <div class="highlight-box">
+                        <h3>Why Choose DecoMatic Nepal?</h3>
+                        <p>Premium materials including teak, sal, and imported woods. Expert craftsmanship with traditional Nepali techniques combined with modern designs. We offer personalized service and guarantee quality that lasts with our 3-year warranty on all custom furniture pieces.</p>
+                    </div>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+<!-- Recent Work -->
+<section id="work" class="recent-work">
+    <div class="container">
+        <h2 class="section-title">Recent Projects in Nepal</h2>
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-image" style="background-image: url('./dada_design-9KGB4HspwsM-unsplash.jpg');"></div>
+                <div class="work-info">
+                    <h3>Luxury Apartment - Lalitpur</h3>
+                    <p>Complete furniture solution for a modern apartment in Patan, featuring contemporary designs with traditional touches</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-image" style="background-image: url('./uneebo-office-design-UgYT5nkXdK4-unsplash.jpg');"></div>
+                <div class="work-info">
+                    <h3>Corporate Office - Kathmandu</h3>
+                    <p>Custom-designed furniture for a tech company headquarters in New Baneshwor, emphasizing productivity and comfort</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-image" style="background-image: url('./IMG-48107d8f055511517c88290a96b6ec25-V.jpg');"></div>
+                <div class="work-info">
+                    <h3>Traditional Home - Bhaktapur</h3>
+                    <p>Handcrafted furniture blending Newari architecture with modern functionality for a heritage home restoration</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews -->
+<section id="reviews" class="reviews">
+    <div class="container">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="reviewer-image-container">
+                    <img src="./anuj-waiba-Q6I762j66PI-unsplash.jpg" alt="Priya Sharma" class="reviewer-image">
+                </div>
+                <div class="review-text">"Exceptional quality and attention to detail. The furniture exceeded our expectations and perfectly suited our Nepali home. The craftsmanship is outstanding."</div>
+                <div class="reviewer-name">Priya Sharma, Kathmandu</div>
+            </div>
+            <div class="review-card">
+                <div class="reviewer-image-container">
+                    <img src="./vatra-voda-Wr8bSpC1r10-unsplash.jpg" alt="Rajesh Maharjan" class="reviewer-image">
+                </div>
+                <div class="review-text">"Professional team, timely delivery, and beautiful craftsmanship. They understood our traditional preferences and created modern solutions. Highly recommended!"</div>
+                <div class="reviewer-name">Rajesh Maharjan, Lalitpur</div>
+            </div>
+            <div class="review-card">
+                <div class="reviewer-image-container">
+                    <img src="./samrat-khadka-cfnDTIG7d8Q-unsplash.jpg" alt="Sunita Adhikari" class="reviewer-image">
+                </div>
+                <div class="review-text">"They transformed our office space completely. The custom designs perfectly matched our company's needs and the furniture quality is excellent. Great value for money."</div>
+                <div class="reviewer-name">Sunita Adhikari, Pokhara</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Homeora</h3>
+                    <p>Premium furniture design studio creating exceptional pieces with superior quality and timeless design. Proudly serving Nepal since 2017.</p>
+                    <p style="margin-top: 1rem;"><strong>Showroom Hours:</strong><br>
+                    Sunday - Friday: 10:00 AM - 7:00 PM<br>
+                    Saturday: 10:00 AM - 6:00 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#catalog">Catalog</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">About Us</a>
+                    <a href="#work">Recent Work</a>
+                    <a href="#reviews">Reviews</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <a href="#">Custom Furniture Design</a>
+                    <a href="#">Interior Design Consultation</a>
+                    <a href="#">Home & Office Setup</a>
+                    <a href="#">Furniture Repair & Maintenance</a>
+                    <a href="#">Free Home Measurement</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><strong>Main Showroom:</strong><br>
+                    📍 Putalisadak, Kathmandu<br>
+                    Near Civil Mall<br>
+                    📞 +977-1-4445566<br>
+                    📧 info@decomatic.com.np</p>
+                    
+                    <p style="margin-top: 1rem;"><strong>Branch Office:</strong><br>
+                    📍 Jawalakhel, Lalitpur<br>
+                    📞 +977-1-5551234<br><br>
+                    
+                    <strong>Service Areas:</strong><br>
+                    Kathmandu Valley, Pokhara, Chitwan, Butwal, Dharan</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Homeora. All rights reserved. | Registered in Nepal | Tax ID: 12345-6789</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Js  code -->
+
+    <script>
+        
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(47, 58, 73, 0.98)';
+            } else {
+                header.style.background = 'rgba(47, 58, 73, 0.95)';
+            }
+        });
+
+        // Product filtering functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+               
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for fade-in effect
+        document.querySelectorAll('.catalog-card, .product-card, .work-card, .review-card').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        
+        document.querySelectorAll('.catalog-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderLeft = '4px solid #D4AF37';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.borderLeft = 'none';
+            });
+        });
+
+        // Product card hover effects
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderTop = '3px solid #D4AF37';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.borderTop = 'none';
+            });
+        });
+
+        // Dynamic stats counter
+        const stats = document.querySelectorAll('.stat-number');
+        let statsAnimated = false;
+
+        const animateStats = () => {
+            if (statsAnimated) return;
+            
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCount = () => {
+                    if (current < target) {
+                        current += increment;
+                        stat.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        stat.textContent = target;
+                    }
+                };
+                
+                updateCount();
+            });
+            
+            statsAnimated = true;
+        };
+
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateStats, 1000);
+                }
+            });
+        });
+
+        heroObserver.observe(document.querySelector('.hero'));
+
+        // Add loading animation for product images
+        document.querySelectorAll('.product-image, .catalog-image').forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        
+        document.querySelectorAll('.product-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productName = this.closest('.product-card').querySelector('.product-name').textContent;
+                alert(`Product details for: ${productName}\n\nThis would open a detailed product page with:\n- High-quality images\n- Detailed specifications\n- Customization options\n- Delivery information\n- Customer reviews\n\nContact us at +977-1-4445566 for more information!`);
+            });
+        });
+
+        // Newsletter signup (placeholder functionality)
+        function subscribeNewsletter() {
+            const email = prompt("Enter your email to receive updates about new furniture collections and special offers:");
+            if (email && email.includes('@')) {
+                alert("Thank you for subscribing! You'll receive updates about our latest furniture collections and exclusive offers for Nepal customers.");
+            } else if (email) {
+                alert("Please enter a valid email address.");
+            }
+        }
+
+        function openContactForm() {
+            alert("Contact Form\n\nFor immediate assistance:\n📞 Call: +977-1-4445566\n📧 Email: info@decomatic.com.np\n📍 Visit: Putalisadak, Kathmandu\n\nOur team will be happy to help you with:\n- Free home consultations\n- Custom furniture quotes\n- Interior design advice\n- Delivery scheduling");
+        }
+
+       
+        document.querySelectorAll('.cta-btn').forEach(btn => {
+            if (btn.textContent.includes('Order Now')) {
+                btn.addEventListener('click', openContactForm);
+            }
+        });
+    </script>
+</body>
+</html>
